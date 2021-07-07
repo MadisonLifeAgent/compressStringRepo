@@ -3,17 +3,38 @@
 // 3.	Compress a string of characters
     // a.	For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
 
+    // set variable
+    // function to count each character
+        // loop
+        // compare characters
+        // if letters not the same anymore add to new string variable
+    // function to put count with character
+    // function to put all back together into one string
+
 // initialize string
 let theString = "aaabbbbbccccaacccbbbaaabbbaaa";
 
-// function to help compress string
-function compressString(theString){
-    let newString = "";
+countCharacters(theString);
 
-    // iterate through string to compress and create new string
-    for (i = 0; i < theString.length; i++){
+// function to help get count of each character in string in order
+function countCharacters(theString){
+    let currentCount = 1;
 
+    // loop through string for a count of each letter
+    for(let i = 0; i < theString.length; i++){
+
+        // compare current string to next string to make sure they match
+        if(theString.charAt(i) === theString.charAt(i + 1)){
+            currentCount++;
+        }
+        else {
+            break;
+        }
     }
+    console.log(currentCount);
 }
 
+// function to concatenate count and string character together
+
+// debug line
 console.log(theString);
