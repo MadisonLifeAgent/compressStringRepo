@@ -12,55 +12,35 @@
     // function to put all back together into one string
 
 // initialize string
-let theString = "aaabbbbbccccaacccbbbaaabbbaaa";
-
-countCharacters(theString);
+countCharacters();
 
 // function to help get count of each character in string in order
-function countCharacters(theString){
+function countCharacters(){
+    // declare variables
+    let firstString = "aaabbbbbccccaacccbbbaaabbbaaa";
+    let finalString = "";
     let currentCount = 1;
 
+
     // loop through string for a count of each letter
-    for(let i = 0; i < theString.length; i++){
+    for(let i = 0; i < firstString.length; i++){
 
         // compare current string to next string to make sure they match
-        if(theString.charAt(i) === theString.charAt(i + 1)){
+        if(firstString[i] === firstString[i + 1]){
+            // increase counter
             currentCount++;
         }
-        // add current count and string character to new string in a new function
-        // (theString.charAt(i) !== theString.charAt(i + 1))
+
         else {
-            newStringWithCompression(theString.charAt(i), currentCount);
+            // add current count to final string
+            finalString += currentCount;
+            // add current string to final string
+            finalString += firstString[i];
+
+            // reset counter
             currentCount = 1;
         }
     }
-    // console.log(currentCount);
+    // out put final string to console
+    console.log(finalString);
 }
-
-// function to concatenate count and string character together and store in an array
-function newStringWithCompression(currentChar, currentCount){
-    let compressedString = currentChar + currentCount;
-
-    let compressedStringArray = [];
-    compressedStringArray.push(compressedString); 
-    
-    // send array to final function to add strings back together into one string
-    addStringsTogether(compressedStringArray);
-
-    // console.log(compressedStringArray);
-}
-
-// function to add new strings together
-function addStringsTogether(compressedStringArray){
-
-    let compressedStringFinal = "";
-
-    for (let index = 0; index < compressedStringArray.length; index++){
-        compressedStringFinal += compressedStringArray[index];
-    }
-    
-    console.log(compressedStringFinal);
-}
-
-// debug line
-console.log(theString);
