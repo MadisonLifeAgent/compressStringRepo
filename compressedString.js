@@ -27,14 +27,22 @@ function countCharacters(theString){
         if(theString.charAt(i) === theString.charAt(i + 1)){
             currentCount++;
         }
+        // add current count and string character to new string in a new function
+        // (theString.charAt(i) !== theString.charAt(i + 1))
         else {
-            break;
+            newStringWithCompression(theString.charAt(i), currentCount);
+            currentCount = 1;
         }
     }
     console.log(currentCount);
 }
 
 // function to concatenate count and string character together
+function newStringWithCompression(currentChar, currentCount){
+    let compressedString = currentChar + currentCount;
+
+    console.log(compressedString);
+}
 
 // debug line
 console.log(theString);
