@@ -34,14 +34,32 @@ function countCharacters(theString){
             currentCount = 1;
         }
     }
-    console.log(currentCount);
+    // console.log(currentCount);
 }
 
-// function to concatenate count and string character together
+// function to concatenate count and string character together and store in an array
 function newStringWithCompression(currentChar, currentCount){
     let compressedString = currentChar + currentCount;
 
-    console.log(compressedString);
+    let compressedStringArray = [];
+    compressedStringArray.push(compressedString); 
+    
+    // send array to final function to add strings back together into one string
+    addStringsTogether(compressedStringArray);
+
+    // console.log(compressedStringArray);
+}
+
+// function to add new strings together
+function addStringsTogether(compressedStringArray){
+
+    let compressedStringFinal = "";
+
+    for (let index = 0; index < compressedStringArray.length; index++){
+        compressedStringFinal += compressedStringArray[index];
+    }
+    
+    console.log(compressedStringFinal);
 }
 
 // debug line
